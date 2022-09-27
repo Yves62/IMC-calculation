@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label,input{
+    display: block;
+}
+
+input{
+    height: 30px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+body{
+    height: 100vh;
+}
+
+.container{
+    width: 80%;
+    height: fit-content;
+    padding: 10px;
+    margin: 100px auto;
+    background-color: rgba(211, 211, 211, 0.485);
+}
+.container h1{
+   text-align: center;
+   font-weight: 200;
+   margin: 20px 0;
+}
+.container h1 span{
+   font-weight: bold;
+}
+
+.container form{
+    width: 95%;
+    margin: 0 auto;
+}
+.container form .input-group{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+.container form .input-group .size,
+.container form .input-group .weight{
+    width: 300px;
+}
+.container form .input-group input{
+    width: 80%;
+}
+.container form button{
+   padding: 6px 12px;
+   background-color: orange;
+   border-radius: 10px;
+   display: block;
+   margin: 30px auto;
+   outline: none;
+   border: none;
+}
+.container .result{
+  margin: 20px 0;
+  text-align: center;
+}
+.container .result h2{ 
+  margin: 20px 0;
+  text-align: center;
+}
+
+@media  screen and (max-width: 500px) {
+    .container form .input-group{
+       flex-direction: column;
+       gap: 20px;
+       text-align: center;
+    }
+    input{
+        margin: 5px auto 0;
+    }
+}
