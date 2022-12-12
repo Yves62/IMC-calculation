@@ -3,6 +3,7 @@ const heightUser = document.querySelector("#height");
 const weightUser = document.querySelector("#weight");
 const numberResult = document.querySelector("h2");
 const indicationResult = document.querySelector(".indication");
+const container = document.querySelector('.container')
 
 let result = 0;
 
@@ -15,6 +16,17 @@ const calculateIMC = () => {
 
   handleVerification(result, indicationResult)
   
+}
+
+const handleError = () => {
+  numberResult.textContent = "Oups vous devez saisir des valeurs";
+  numberResult.style.color = "red";
+  indicationResult.textContent = "En attente de résultat";
+  indicationResult.style.color = "black";
+  container.classList.add('error')
+    setTimeout(()=>{
+      container.classList.remove('error')
+  },1000)
 }
 
 const handleVerification = (element, tag) => {
@@ -44,11 +56,10 @@ const handleVerification = (element, tag) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (weightUser.value === "" || heightUser.value === "") {
-    numberResult.textContent = "Oups vous devez saisir des valeurs";
-    numberResult.style.color = "red";
-    indicationResult.textContent = "En attente de résultat";
-    indicationResult.style.color = "black";
+    handleError()
   } else {
     calculateIMC();
   }
 });
+
+

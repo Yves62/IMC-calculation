@@ -73,6 +73,10 @@ body{
   text-align: center;
 }
 
+.error{
+    animation: shakeX 1s linear;
+}
+
 @media  screen and (max-width: 500px) {
     .container form .input-group{
        flex-direction: column;
