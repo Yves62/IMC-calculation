@@ -7,6 +7,11 @@ const container = document.querySelector('.container')
 
 let result = 0;
 
+const contentVerification = (text,color) => {
+  indicationResult.textContent = text;
+  indicationResult.style.color = color;
+}
+
 const calculateIMC = () => {
   result = (
     Number(weightUser.value) /
@@ -29,27 +34,21 @@ const handleError = () => {
   },1000)
 }
 
-const handleVerification = (element, tag) => {
+const handleVerification = (element) => {
   if (element < 18.5) {
-    tag.textContent = "Insuffisance pondérale (maigreur)";
-    tag.style.color = "red";
+    contentVerification("Insuffisance pondérale (maigreur)", "red")
   } else if (element > 18.5 && element < 25) {
-    tag.textContent = "Corpulence normale";
-    tag.style.color = "green";
+    contentVerification("Corpulence normale", "green")
   } else if (element > 25 && element < 30) {
-    tag.textContent = "surpoids";
-    tag.style.color = "orange";
+    contentVerification("surpoids", "orange")
   } else if (element > 30 && element < 35) {
-    tag.textContent = "Obésité modérée";
-    tag.style.color = "blue";
+    contentVerification("Obésité modérée", "blue")
   } else if (element > 35 && element < 40) {
-    tag.textContent = "Obésité sévère";
-    tag.style.color = "purple";
+    contentVerification("Obésité sévère", "purple")
   } else if (element > 40) {
-    tag.textContent = "Obésité morbide ou massive";
-    tag.style.color = "red";
+    contentVerification("Obésité morbide ou massive", "red")
   } else {
-    tag.textContent = "En attente de résultat";
+    contentVerification("En attente de résultat", "black")
   }
 }
 
