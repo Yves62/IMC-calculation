@@ -6,33 +6,38 @@ const indicationResult = document.querySelector(".indication");
 
 let result = 0;
 
-function calculateIMC() {
+const calculateIMC = () => {
   result = (
     Number(weightUser.value) /
     Number((heightUser.value / 100) * (heightUser.value / 100))
   ).toFixed(2);
   numberResult.textContent = result;
 
-  if (result < 18.5) {
-    indicationResult.textContent = "Insuffisance pondérale (maigreur)";
-    indicationResult.style.color = "red";
-  } else if (result > 18.5 && result < 25) {
-    indicationResult.textContent = "Corpulence normale";
-    indicationResult.style.color = "green";
-  } else if (result > 25 && result < 30) {
-    indicationResult.textContent = "surpoids";
-    indicationResult.style.color = "orange";
-  } else if (result > 30 && result < 35) {
-    indicationResult.textContent = "Obésité modérée";
-    indicationResult.style.color = "blue";
-  } else if (result > 35 && result < 40) {
-    indicationResult.textContent = "Obésité sévère";
-    indicationResult.style.color = "purple";
-  } else if (result > 40) {
-    indicationResult.textContent = "Obésité morbide ou massive";
-    indicationResult.style.color = "red";
+  handleVerification(result, indicationResult)
+  
+}
+
+const handleVerification = (element, tag) => {
+  if (element < 18.5) {
+    tag.textContent = "Insuffisance pondérale (maigreur)";
+    tag.style.color = "red";
+  } else if (element > 18.5 && element < 25) {
+    tag.textContent = "Corpulence normale";
+    tag.style.color = "green";
+  } else if (element > 25 && element < 30) {
+    tag.textContent = "surpoids";
+    tag.style.color = "orange";
+  } else if (element > 30 && element < 35) {
+    tag.textContent = "Obésité modérée";
+    tag.style.color = "blue";
+  } else if (element > 35 && element < 40) {
+    tag.textContent = "Obésité sévère";
+    tag.style.color = "purple";
+  } else if (element > 40) {
+    tag.textContent = "Obésité morbide ou massive";
+    tag.style.color = "red";
   } else {
-    indicationResult.textContent = "En attente de résultat";
+    tag.textContent = "En attente de résultat";
   }
 }
 
@@ -40,6 +45,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (weightUser.value === "" || heightUser.value === "") {
     numberResult.textContent = "Oups vous devez saisir des valeurs";
+    numberResult.style.color = "red";
     indicationResult.textContent = "En attente de résultat";
     indicationResult.style.color = "black";
   } else {
