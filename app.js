@@ -55,7 +55,7 @@ const handleVerification = (element, tag) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (weightUser.value === "" || heightUser.value === "") {
+  if (!weightUser.value.length || !heightUser.value.length) {
     handleError()
   } else {
     calculateIMC();
