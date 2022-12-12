@@ -34,18 +34,18 @@ const handleError = () => {
   },1000)
 }
 
-const handleVerification = (element) => {
-  if (element < 18.5) {
+const handleVerification = (resultIMC) => {
+  if (resultIMC < 18.5) {
     contentVerification("Insuffisance pondérale (maigreur)", "red")
-  } else if (element > 18.5 && element < 25) {
+  } else if (resultIMC > 18.5 && resultIMC < 25) {
     contentVerification("Corpulence normale", "green")
-  } else if (element > 25 && element < 30) {
+  } else if (resultIMC > 25 && resultIMC < 30) {
     contentVerification("surpoids", "orange")
-  } else if (element > 30 && element < 35) {
+  } else if (resultIMC > 30 && resultIMC < 35) {
     contentVerification("Obésité modérée", "blue")
-  } else if (element > 35 && element < 40) {
+  } else if (resultIMC > 35 && resultIMC < 40) {
     contentVerification("Obésité sévère", "purple")
-  } else if (element > 40) {
+  } else if (resultIMC > 40) {
     contentVerification("Obésité morbide ou massive", "red")
   } else {
     contentVerification("En attente de résultat", "black")
